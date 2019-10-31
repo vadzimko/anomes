@@ -209,9 +209,9 @@ func handleMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	token, err := getTokenByUserID(userID)
 	if err != nil {
 		if err == redis.Nil {
-			sendMessage(bot, chatID, ErrorMessageInternalError)
-		} else {
 			sendMessage(bot, chatID, ErrorMessageTokenNotSet)
+		} else {
+			sendMessage(bot, chatID, ErrorMessageInternalError)
 		}
 		return
 	}
